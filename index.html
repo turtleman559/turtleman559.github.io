@@ -23,13 +23,13 @@
     }
 
     function getWords() {
-      var word = words[Math.floor(Math.random()*words.length)];
-      document.getElementById("textBox").value = word;
+      var w = words[Math.floor(Math.random()*words.length)];
+      document.getElementById("textBox").value = w;
     }
 
     function getSentences() {
-      var sentences = sentences[Math.floor(Math.random()*sentences.length)];
-      document.getElementById("textBox").value = sentences;
+      var s = sentences[Math.floor(Math.random()*sentences.length)];
+      document.getElementById("textBox").value = s;
     }
 
     function getParagraphs() {
@@ -38,8 +38,8 @@
     }
 
     function getRare() {
-      var rare_words = rare_words[Math.floor(Math.random()*rare_words.length)];
-      document.getElementById("textBox").value = word;
+      var r = rare_words[Math.floor(Math.random()*rare_words.length)];
+      document.getElementById("textBox").value = r;
     }
     
     function setTime() {
@@ -48,13 +48,6 @@
       minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
     }
     
-    // window.addEventListener('load', function() {
-    //   words = [];
-    //   sentences = [];
-    //   paragraphs = [];
-    //   rare_words = [];
-    // })
-
 </script>
 
 </head>
