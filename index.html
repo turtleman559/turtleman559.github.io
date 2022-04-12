@@ -48,33 +48,77 @@
       minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
     }
     
+
+
 </script>
 
 </head>
 
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<label id="minutes">00</label>:<label id="seconds">00</label>
+  <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1>Hello World</h1>
+    <p>I'm hosted with GitHub Pages.</p>
+    <button type="button" class="btn btn-danger" id="stop-btn">Stop</button>
+    <label id="minutes">00</label>:<label id="seconds">00</label>
+    <button type="button" class="btn btn-success" id="reset-btn">Reset</button>
 
-<hr>
-<br>
-<textarea id="textBox" name="textBox" rows="10" cols="50"></textarea>
-<br>
+    <hr>
+    <br>
+    <textarea id="textBox" name="textBox" rows="10" cols="50"></textarea>
+    <br>
 
-<script>
-      var minutesLabel = document.getElementById("minutes");
-      var secondsLabel = document.getElementById("seconds");
-      var totalSeconds = 0;
-      setInterval(setTime, 1000);
-</script>
+    <script>
+          var minutesLabel = document.getElementById("minutes");
+          var secondsLabel = document.getElementById("seconds");
+          var totalSeconds = 0;
+          var isPaused = false;
+          var t = window.setInterval(function() {
+            if(!isPaused) {
+              totalSeconds++;
+              hour = Math.floor(totalSeconds /3600);
+              minute = Math.floor((totalSeconds - hour*3600)/60);
+              seconds = totalSeconds - (hour*3600 + minute*60);
+              document.getElementById("minutes").innerHTML = minute;
+              document.getElementById("seconds").innerHTML = seconds;
+            }
+          }, 1000);
 
-<hr>
+          document.getElementById('stop-btn').addEventListener('click', () => {
+            if (!isPaused){
+              isPaused = true;
+              document.getElementById("stop-btn").innerHTML = "Start";
+              document.getElementById("stop-btn").className = "btn btn-success";
+            }else{
+              isPaused = false;
+              document.getElementById("stop-btn").innerHTML = "Stop";
+              document.getElementById("stop-btn").className = "btn btn-danger";
+            }
 
-<button type="button" class="btn btn-primary" onclick="getWords()">Word</button>
-<button type="button" class="btn btn-primary" onclick="getSentances()">Sentence</button>
-<button type="button" class="btn btn-primary" onclick="getParagraphs()">Paragraph</button>
-<button type="button" class="btn btn-primary" onclick="getRare()">Rare Words</button>
+            
+            });
+  
+   
+          document.getElementById('reset-btn').addEventListener('click', () => {
+            totalSeconds = 0;
+            document.getElementById("minutes").innerHTML = '0';
+            document.getElementById("seconds").innerHTML = '0';
+          });
+    </script>
 
+    <hr>
+
+    <button type="button" class="btn btn-primary" onclick="getWords()">Word</button>
+    <button type="button" class="btn btn-primary" onclick="getSentences()">Sentence</button>
+    <button type="button" class="btn btn-primary" onclick="getParagraphs()">Paragraph</button>
+    <button type="button" class="btn btn-primary" onclick="getRare()">Rare Words</button>
+  
+    <br>
+    <br>
+
+    <hr>
+
+    <img src="qr-code.png" width = "300" height = "300">
+
+  </div>
 </body>
 </html>
