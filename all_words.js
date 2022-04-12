@@ -1,4 +1,4 @@
-allwords = [
+let words = [
 "lili",
 "boulanger",
 "vieille",

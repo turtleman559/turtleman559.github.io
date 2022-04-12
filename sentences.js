@@ -1,4 +1,4 @@
-sentences = [
+let sentences = [
 " Lili Boulanger, Vieille prière bouddhique Horns Doubling the Vocal Melody with the Strings establishing the harmony underneath sounds amazing",
 " I can definitely hear the Impressionist influence, but it has an intensity unlike Debussy or Ravel which I can’t really describe",
 " I’m a big fan of this piece",
