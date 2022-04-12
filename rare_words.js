@@ -1,4 +1,4 @@
-rarewords = [
+let rare_words = [
 "traditional",
 "gave",
 "effect",
